@@ -1,0 +1,81 @@
+@import 'variables.scss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: $color_7;
+}
+
+h2, h3 { 
+  padding: 10px 0; 
+}
+
+.wrapper {
+  width: 60vw;
+  margin: 0 auto;
+}
+
+%weatherblock {
+  color: $color_2;
+  padding: 10px;
+}
+
+.current-weather {
+  @extend %weatherblock;
+  width: 300px;
+  &__parameters {
+    border: 1px solid $color_1;
+    padding: 10px;
+    border-collapse: collapse;
+    & td {
+      border: 1px solid $color_3;
+      padding: 5px;
+    }
+    & tr:nth-child(odd) { 
+      background-color: $color_4; 
+    }
+  }
+  &__icon, &__temperature, &__time, &__date { 
+    display: inline-block; 
+  }
+  &__date { 
+    padding: 10px; 
+  }
+  &__temperature { 
+    font-size: 2em; 
+  }
+}
+
+.weather-forecast {
+  @extend %weatherblock;
+  &__date {
+    padding: 10px 5px;
+    border: 1px solid $color_3;
+    background-color: $color_4;
+  }
+  &__hour {
+    display: flex;
+    padding: 10px 6px;
+    border-bottom: 1px solid $color_3;
+  }
+  &__time {
+    display: flex;
+    align-items: center;
+    width: 40%;
+  }
+  &__brief {
+    width: 60%;
+  }
+  &__temp {
+    padding: 0 10px;
+    background-color: $color_5;
+    border-radius: 10px;
+    color: $color_6;
+  }
+}
